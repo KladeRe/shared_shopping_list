@@ -1,0 +1,19 @@
+<% layout("./layouts/layout.eta") %>
+<form method="POST">
+    <input type="text" name="name"/>
+    <input type="submit" value="Submit!"/>
+</form>
+
+<ul>
+<% it.shopping_lists.forEach((shopping_list) => { %>
+    <li>
+        <a href="/lists/<%=shopping_list.id%>"><%=shopping_list.name%></a>
+        <form action="/lists/<%=shopping_list.id%>/deactivate" method="POST">
+            <input type="submit" value="Deactivate list!"/>
+        </form>
+
+    </li>
+<% });%>
+</ul>
+
+<a href="/">Main page</a>
